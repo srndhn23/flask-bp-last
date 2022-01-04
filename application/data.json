@@ -1,0 +1,68 @@
+{"intents": [
+    {"tag": "greeting",
+     "patterns": ["Selamat Pagi", "Selamat Siang", "Selamat Sore","Hai","Halo", "Selamat Malam"],
+     "responses": ["Selamat Pagi, Selamat Datang Di PlateBot ANPR", "Selamat Siang, Selamat Datang Di PlateBot ANPR", "Selamat Sore, Selamat Datang Di PlateBot ANPR", "Selamat Malam. Selamat Datang Di PlateBot ANPR"],
+     "context": [""]
+    },
+    {"tag": "goodbye",
+     "patterns": ["Bye", "Sampai Jumpa", "Goodbye", "Senang, bercakapan dengan anda"],
+     "responses": ["Bye", "Sampai Jumpa kembali", "Oke, Semoga bermanfaat."],
+     "context": [""]
+    },
+    {"tag": "thanks",
+     "patterns": ["Terima Kasih", "Terima Kasih Banyak"],
+     "responses": ["Sama sama", "Ada yang mau ditanyakan lagi?"],
+     "context": ["thanks_tidak"]
+    },
+    {"tag": "thanks_tidak",
+    "patterns": ["Tidak", "Tidak ada", "cukup"],
+    "responses": ["Terima kasih"],
+    "context": [""]
+    },
+    {"tag": "noanswer",
+     "patterns": [],
+     "responses": ["Maaf, tidak bisa memahamimu", "Maaf, tidak dapat mengerti apa yang anda inginkan", "Maaf, bisa ulangi pertanyaanya"],
+     "context": [""]
+    },
+    {"tag": "options",
+     "patterns": ["Bagaimana cara penggunaan PlateBot ini?","Untuk apa kegunaan PlateBot ANPR ini?" , "Mengapa PlateBot ANPR sangat diperlukan?"],
+     "responses": ["Cara penggunaan PlateBot ini adalah kamera akan memindai plat nomor kendaraan anda sehingga kendaraan anda akan tercatat saat parkir dan memberikan keaamanan"],
+     "context": [""]
+    },
+    {"tag": "riwayat_masuk",
+     "patterns": ["Bagaimana mengetahui riwayat masuk?", "Bagaimana mengetahui riwayat masuk kendaraan?", "Bagaimana mengetahui riwayat masuk parkir?" ],
+     "responses": ["riwayat masuk bisa dicek melalui Mobile", "riwayat masuk bisa dicek melalui aplikasi di android"],
+     "context": [""]
+    },
+       {"tag": "riwayat_keluar",
+     "patterns": ["Bagaimana mengetahui riwayat keluar?", "Bagaimana mengetahui riwayat keluar kendaraan?", "Bagaimana mengetahui riwayat keluar parkir?" ],
+     "responses": ["riwayat keluar bisa dicek melalui Mobile", "riwayat keluar kendaraan bisa dicek melalui aplikasi di android"],
+     "context": [""]
+    },
+    {"tag": "error",
+     "patterns": ["bagaimana apabila kamera tidak bisa memindai?", "plat nomor tidak terdeteksi", "plat tidak terbaca" ],
+     "responses": ["mengatur posisi kendaraan, agar plate bisa terbaca oleh kamera", "Silahkan hubungi operator yang bertugas"],
+     "context": [""]
+    },
+    {"tag": "ANPR",
+     "patterns": ["Apa itu ANPR?" , "ANPR?","ANPR itu apa?","ANPR artinya?","apa artinya ANPR?"],
+     "responses": ["ANPR merupakan Aplikasi Pengenalan plat nomor otomatis adalah teknologi untuk membaca plat registrasi kendaraan untuk membuat data kendaraan saat parkir."],
+     "context": [""]
+    },
+    {"tag": "kerja_ANPR",
+     "patterns": ["Gimana kerja ANPR?", "Bagaimana kerja ANPR?", "kerja ANPR" ],
+     "responses": ["Kamera akan memindai plat nomor kendaraan membuat data parkir secara otomatis"],
+     "context": [""]
+    },
+    {"tag": "update_datadiri",
+     "patterns": ["update data diri","gimana caranya update data diri?","cara update data diri"],
+     "responses": ["Untuk Update data diri hubungi admin"],
+     "context": [""]
+    },
+    {"tag": "data_diri",
+     "patterns": ["data diri","cara liat data diri","liat data diri"],
+     "responses": ["silahkan cek di aplikasi mobile"],
+     "context": [""]
+    }
+]
+}

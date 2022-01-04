@@ -1,0 +1,139 @@
+{% extends 'layouts/base-fullscreen.html' %}
+
+{% block title %} Register {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <!-- Page content -->
+  <div class="container mt--8 pb-5">
+    <!-- Table -->
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card bg-secondary border-0">
+          <div class="card-header bg-transparent pb-5">
+
+            <div class="text-muted text-center mt-2 mb-1">            
+              Register User's Account
+              <br>
+              {% if msg %}
+                <span class="text-danger">{{ msg | safe }}</span>
+              {% else %}
+              <small>Fill The Form Correctly</small>
+              {% endif %}
+            </div>
+
+          <div class="card-body px-lg-5 py-lg-5">
+            {% if not success %}
+
+              <form method="POST" action="/userregister">
+
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                  </div>
+                  <input type="text" name="username" class="form-control" placeholder="Username" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                  </div>
+                  <input type="text" name="no_identitas" class="form-control" placeholder="Nomor Identitas" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input type="text" name="nama" class="form-control" placeholder="Nama" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                  </div>
+                  <select name="gender" class="form-control" required>
+                    <option selected>Jenis Kelamin</option>
+                    <option>P</option>
+                    <option>L</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input type="text" name="status" class="form-control" placeholder="Status" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
+                  </div>
+                  <input type="tel" id="phone" pattern="[0-9]{12}" maxlength="13" name="no_hp" class="form-control" placeholder="Nomor HP" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  </div>
+                  <input type="email" name="email" class="form-control" placeholder="Email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-pin-3"></i></span>
+                  </div>
+                  <input type="text" name="alamat" class="form-control" placeholder="Alamat" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                  </div>
+                  <input type="text" name="no_plat" class="form-control" placeholder="Nomor Plat" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                  </div>
+                  <input name="tanggal_masuk" placeholder="Tanggal Masuk" class="form-control" type="text" onfocus="(this.type='date')" id="date" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-merge input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                  </div>
+                  <input type="password" name="password" class="form-control" placeholder="Password" required>
+                </div>
+              </div>
+              <div class="text-center">
+                <button type="submit" name="userregister" class="btn btn-primary my-4">Register</button>
+              </div>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}
