@@ -170,6 +170,19 @@ def masuk():
     else:
         return render_template("home/page-403.html")
 
+@app.route("/laporanmasuk")
+def laporanmasuk():
+    
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM `data_masuk` WHERE waktu_masuk BETWEEN CAST( CONCAT(CURDATE(), ' ', '08:00:00') AS DATETIME ) AND NOW()")
+    laporanmasuk = cur.fetchall()
+    cur.close()
+    
+    if 'islogin' in session:
+        return render_template("home/laporanmasuk.html", laporanmasuk=laporanmasuk)
+    else:
+        return render_template("home/page-403.html")
+
 @app.route("/keluar")
 def keluar():
     
@@ -180,6 +193,19 @@ def keluar():
     
     if 'islogin' in session:
         return render_template("home/keluar.html", keluar=keluar)
+    else:
+        return render_template("home/page-403.html")
+    
+@app.route("/laporankeluar")
+def laporankeluar():
+    
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM `data_keluar` WHERE waktu_keluar BETWEEN CAST( CONCAT(CURDATE(), ' ', '08:00:00') AS DATETIME ) AND CAST( CONCAT(CURDATE(), ' ', '16:00:00') AS DATETIME )")
+    laporankeluar = cur.fetchall()
+    cur.close()
+    
+    if 'islogin' in session:
+        return render_template("home/laporankeluar.html", laporankeluar=laporankeluar)
     else:
         return render_template("home/page-403.html")
 
@@ -253,7 +279,6 @@ def realtime():
 def logout():
     session.pop('islogin', None)
     session.pop('username', None)
-    session.pop('ip', None)
     return render_template("accounts/login.html")
 
 # @app.route("/coba")

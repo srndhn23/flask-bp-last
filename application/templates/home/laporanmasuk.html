@@ -1,6 +1,6 @@
 {% extends 'layouts/base.html' %}
 
-{% block title %} Keluar {% endblock title %}
+{% block title %} Masuk {% endblock title %}
 
 {% block content %}
 
@@ -10,18 +10,18 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Keluar</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">Report</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="/index"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Riwayat Keluar</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Keluar</li>
+                  <li class="breadcrumb-item"><a href="/masuk">Riwayat Masuk</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Terlambat</li>
                 </ol>
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
               <!--<a href="#" class="btn btn-sm btn-neutral">New</a>-->
-              <a href="/laporankeluar" class="btn btn-sm btn-neutral">Report</a>
+              <a href="/masuk" class="btn btn-sm btn-neutral">Back</a>
             </div>
           </div>
         </div>
@@ -35,11 +35,11 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <h3 class="mb-0">Riwayat Keluar Kendaraan</h3>
+            <h3 class="mb-0">Riwayat Masuk Kendaraan Terlambat Hari Ini</h3>
           </div>
           <!-- Light table -->
           <div class="table-responsive">
-            {% if keluar %}
+            {% if laporanmasuk %}
             <table class="table align-items-center table-flush text-center">
               <thead class="thead-light">
                 <tr>
@@ -50,12 +50,12 @@
                   <th>No. HP</th>
                   <th>Alamat</th>
                   <th>No. Plat</th>
-                  <th>Waktu Keluar</th>
+                  <th>Waktu Masuk</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody class="list">
-                {% for row in keluar %}
+                {% for row in laporanmasuk %}
                 <tr>
                   <td> {{ row.id }} </td>
                   <td> {{ row.no_identitas }} </td>
@@ -64,14 +64,14 @@
                   <td> {{ row.no_hp }} </td>
                   <td> {{ row.alamat }} </td>
                   <td> {{ row.no_plat }} </td>
-                  <td> {{ row.waktu_keluar }} </td>
+                  <td> {{ row.waktu_masuk }} </td>
                   <td class="text-right">
                     <div class="dropdown">
                       <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-v"></i>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                        <a class="dropdown-item" href="/deletekeluar/{{ row.id }}" onclick="return confirm('Are you sure want to delete it?')">Delete</a>
+                        <a class="dropdown-item" href="/deletemasuk/{{ row.id }}" onclick="return confirm('Are you sure want to delete it?')">Delete</a>
                       </div>
                     </div>
                   </td>

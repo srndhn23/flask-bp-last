@@ -14,14 +14,14 @@
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="/index"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Riwayat Keluar</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Keluar</li>
+                  <li class="breadcrumb-item"><a href="/keluar">Riwayat Keluar</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">di Luar Jam Kerja</li>
                 </ol>
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
               <!--<a href="#" class="btn btn-sm btn-neutral">New</a>-->
-              <a href="/laporankeluar" class="btn btn-sm btn-neutral">Report</a>
+              <a href="/keluar" class="btn btn-sm btn-neutral">Back</a>
             </div>
           </div>
         </div>
@@ -35,11 +35,11 @@
         <div class="card">
           <!-- Card header -->
           <div class="card-header border-0">
-            <h3 class="mb-0">Riwayat Keluar Kendaraan</h3>
+            <h3 class="mb-0">Riwayat Keluar Kendaraan di Luar Jam Kerja Hari Ini</h3>
           </div>
           <!-- Light table -->
           <div class="table-responsive">
-            {% if keluar %}
+            {% if laporankeluar %}
             <table class="table align-items-center table-flush text-center">
               <thead class="thead-light">
                 <tr>
@@ -55,7 +55,7 @@
                 </tr>
               </thead>
               <tbody class="list">
-                {% for row in keluar %}
+                {% for row in laporankeluar %}
                 <tr>
                   <td> {{ row.id }} </td>
                   <td> {{ row.no_identitas }} </td>
