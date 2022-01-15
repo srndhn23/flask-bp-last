@@ -161,7 +161,7 @@ def register():
 def masuk():
     
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM data_masuk")
+    cur.execute("SELECT * FROM enter_parking")
     masuk = cur.fetchall()
     cur.close()
     
@@ -174,7 +174,7 @@ def masuk():
 def laporanmasuk():
     
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM `data_masuk` WHERE waktu_masuk BETWEEN CAST( CONCAT(CURDATE(), ' ', '08:00:00') AS DATETIME ) AND NOW()")
+    cur.execute("SELECT * FROM `enter_parking` WHERE waktu_masuk BETWEEN CAST( CONCAT(CURDATE(), ' ', '08:00:00') AS DATETIME ) AND NOW()")
     laporanmasuk = cur.fetchall()
     cur.close()
     
@@ -187,7 +187,7 @@ def laporanmasuk():
 def keluar():
     
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM data_keluar")
+    cur.execute("SELECT * FROM exit_parking")
     keluar = cur.fetchall()
     cur.close()
     
@@ -200,7 +200,7 @@ def keluar():
 def laporankeluar():
     
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM `data_keluar` WHERE waktu_keluar BETWEEN CAST( CONCAT(CURDATE(), ' ', '08:00:00') AS DATETIME ) AND CAST( CONCAT(CURDATE(), ' ', '16:00:00') AS DATETIME )")
+    cur.execute("SELECT * FROM `exit_parking` WHERE waktu_keluar BETWEEN CAST( CONCAT(CURDATE(), ' ', '08:00:00') AS DATETIME ) AND CAST( CONCAT(CURDATE(), ' ', '16:00:00') AS DATETIME )")
     laporankeluar = cur.fetchall()
     cur.close()
     
@@ -261,13 +261,6 @@ def userregister():
     else:
         return render_template("home/page-403.html")
 
-# @app.route("/profile")
-# def profile():
-#     if 'islogin' in session:
-#         return render_template("home/profile.html")
-#     else:
-#         return render_template("home/page-403.html")
-
 @app.route("/realtime")
 def realtime():
     if 'islogin' in session:
@@ -281,17 +274,12 @@ def logout():
     session.pop('username', None)
     return render_template("accounts/login.html")
 
-# @app.route("/coba")
-# def coba():
-#     return render_template("accounts/coba.html")
-
-# delete
     
 @app.route("/deletemasuk/<string:id>", methods=['GET', 'POST'])
 def deletemasuk(id):
     
     cur = mysql.connection.cursor()
-    cur.execute("DELETE FROM data_masuk WHERE id=%s", (id,))
+    cur.execute("DELETE FROM enter_parking WHERE id=%s", (id,))
     mysql.connection.commit()
     return redirect(url_for('masuk'))
 
@@ -299,7 +287,7 @@ def deletemasuk(id):
 def deletekeluar(id):
     
     cur = mysql.connection.cursor()
-    cur.execute("DELETE FROM data_keluar WHERE id=%s", (id,))
+    cur.execute("DELETE FROM exit_parking WHERE id=%s", (id,))
     mysql.connection.commit()
     return redirect(url_for('keluar'))
 
